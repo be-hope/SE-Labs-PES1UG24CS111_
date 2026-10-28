@@ -1,51 +1,44 @@
-# Lab 5: Static Code Analysis — Restaurant Order System
+# Lab 5: Static Code Analysis - Restaurant Order System
 
-**Your file:** `restaurant_order_system.py`
-
-Follow the lab handout for the full instructions.
-
-## About the program
-
-A restaurant dining order billing and kitchen ticket manager. It places table orders, voids tickets, calculates promotional discounts, and exports active orders to kitchen printers.
-
-The code works, but only just. It has quality, style and security problems of the kind Pylint, Flake8 and Bandit are built to find.
-
-## What to do
-
-1. **Run it first** and read the output carefully:
-   ```bash
-   python restaurant_order_system.py
-   ```
-   It asks one question. Press Enter to use the default, then try a few inputs of your own. Not every problem in this file is something a tool will flag, so pay attention to output that looks wrong.
-
-2. **Install the tools:**
-   ```bash
-   pip install pylint bandit flake8
-   ```
-
-3. **Run the analysis** and save the reports:
-   ```bash
-   pylint restaurant_order_system.py > pylint_report.txt
-   bandit -r restaurant_order_system.py > bandit_report.txt
-   flake8 restaurant_order_system.py > flake8_report.txt
-   ```
-
-4. **Document the issues** in `issues.md` using this table (at least 4 rows, high and medium severity first):
-
-   | Issue | Type | Line(s) | Description | Fix Approach |
-   |-------|------|---------|-------------|--------------|
-   | ... | ... | ... | ... | ... |
-
-5. **Fix the code.** Fix at least 4 of the issues you documented, then rerun all three tools to confirm they are gone. Repeat until you are satisfied. The program should still do its job when you are done.
-
-6. **Reflect.** Answer the four reflection questions from the handout in `reflection.md`.
+Completed locally. Lab 2/Jira is excluded as requested.
 
 ## Deliverables
 
-1. `restaurant_order_system.py`: your cleaned version, with at least 4 issues fixed.
-2. `issues.md`: the completed issue table.
-3. `reflection.md`: your answers to the reflection questions.
+- restaurant_order_system.py: cleaned application.
+- issues.md: issue table with original lines, priorities, fixes, results, and interface changes.
+- reflection.md: four reflection responses and missing-question explanation.
+- reports/before and reports/after: all three raw tool reports and demo output.
+- reports/after/tests.txt: six passing regression tests.
+- test_restaurant_order_system.py: behavioral regression tests.
+- requirements-dev.txt: pinned analysis dependencies.
 
-**Target:** aim for a Pylint score above 9.5 on your final file. A perfect 10.00/10 is very good.
+## Reproduce (Windows PowerShell)
 
-Be ready to explain the bugs you found and how you fixed them. You may be called on to present.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe restaurant_order_system.py
+.\.venv\Scripts\python.exe -m pylint --persistent=n restaurant_order_system.py
+.\.venv\Scripts\python.exe -m bandit -r restaurant_order_system.py
+.\.venv\Scripts\python.exe -m flake8 restaurant_order_system.py
+.\.venv\Scripts\python.exe -m unittest -v
+```
+
+Save stdout for Pylint/Flake8 reports. Use Bandit's -o option to save its report.
+The original baseline comes from commit a018232, before edits. The demo takes no
+interactive input despite the original README's claim.
+
+## Verified results
+
+Python 3.12.14; Pylint 4.1.3: 10.00/10; Bandit 1.9.4: zero findings;
+Flake8 7.4.1: zero violations. Six tests passed. The final Flake8 report is
+intentionally empty. No checks were suppressed.
+
+## Submission history
+
+Three commits on codex/complete-labs group Bandit security fixes, Pylint quality
+fixes, and Flake8 formatting with evidence. Reports preserve the original results.
+All work and commits are local; remote submission is not claimed.
+
+Discounts now accept a numeric fraction (0.10 for ten percent) rather than Python
+expressions. Function names use snake_case. See issues.md for other changes.
