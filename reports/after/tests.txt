@@ -1,0 +1,12 @@
+test_create_duplicate_and_invalid_orders (test_restaurant_order_system.RestaurantTests.test_create_duplicate_and_invalid_orders) ... ok
+test_discount_boundaries (test_restaurant_order_system.RestaurantTests.test_discount_boundaries) ... ok
+test_export_treats_shell_characters_as_filename (test_restaurant_order_system.RestaurantTests.test_export_treats_shell_characters_as_filename) ... ok
+test_hash_and_pin (test_restaurant_order_system.RestaurantTests.test_hash_and_pin) ... ok
+test_logging_is_optional_and_caller_owned (test_restaurant_order_system.RestaurantTests.test_logging_is_optional_and_caller_owned) ... ok
+test_void_and_status (test_restaurant_order_system.RestaurantTests.test_void_and_status) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+OK
+Ticket exported for kitchen printer: C:\Users\Bhadra\AppData\Local\Temp\tmpgjo364le\orders & echo injected.txt
