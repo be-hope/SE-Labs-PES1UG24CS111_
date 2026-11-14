@@ -1,3 +1,4 @@
 *.py text eol=lf
 *.md text eol=lf
 reports/** -whitespace
+Lab7/*.pdf binary
